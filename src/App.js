@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, Navbar, Jumbotron, Button } from 'react-bootstrap';
+import MovieCards from "./MovieCards";
 const MOVIE_URL =
   "https://api.themoviedb.org/3/search/movie?api_key=2434d246ec60c162a86db597467ef4ed&language=en-US&query=hiphop&include_adult=false&sort_by=created_at.asc&page=1";
 class App extends Component {
@@ -11,27 +12,19 @@ class App extends Component {
     fetch(MOVIE_URL)
     .then(response => response.json())
     .then(payload => this.setState({
-      movies: payload.results
+      movies: payload.results.filter(movie => (movie.poster_path !== null))
       })
     )
     .catch(err => console.log(err));
   }
   render() {
-    const movieList = this.state.movies.map( movie => {
-      return (
-        <li key={movie.id}>
-          {movie.title}
-          <img src={"https://image.tmdb.org/t/p/w500/" + movie.poster_path} alt={movie.title} />
-        </li>
-      );
-    })
     return (
       <div>
         <Navbar inverse fixedTop>
           <Grid>
             <Navbar.Header>
               <Navbar.Brand>
-                <a href="/">React App</a>
+                <a href="/">Hip Hop</a>
               </Navbar.Brand>
               <Navbar.Toggle />
             </Navbar.Header>
@@ -39,19 +32,8 @@ class App extends Component {
         </Navbar>
         <Jumbotron>
           <Grid>
-            <h1>Welcome to React</h1>
-            <p>
-              <Button
-                bsStyle="success"
-                bsSize="large"
-                href="http://react-bootstrap.github.io/components.html"
-                target="_blank">
-                View React Bootstrap Docs
-              </Button>
-            </p>
-            <ul>
-              {movieList}
-            </ul>
+            <h1 style={{textAlign: "center"}}>The Best ever made!</h1>
+            < MovieCards movies={this.state.movies} />
           </Grid>
         </Jumbotron>
       </div>
