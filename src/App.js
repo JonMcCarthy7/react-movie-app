@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, Navbar, Jumbotron, Button } from 'react-bootstrap';
-consts MOVIE_URL = 
+const MOVIE_URL =
+  "https://api.themoviedb.org/3/search/movie?api_key=2434d246ec60c162a86db597467ef4ed&language=en-US&query=hiphop&include_adult=false&sort_by=created_at.asc&page=1";
 class App extends Component {
 
   state = {
@@ -16,6 +17,14 @@ class App extends Component {
     .catch(err => console.log(err));
   }
   render() {
+    const movieList = this.state.movies.map( movie => {
+      return (
+        <li key={movie.id}>
+          {movie.title}
+          <img src={"https://image.tmdb.org/t/p/w500/" + movie.poster_path} alt={movie.title} />
+        </li>
+      );
+    })
     return (
       <div>
         <Navbar inverse fixedTop>
@@ -40,6 +49,9 @@ class App extends Component {
                 View React Bootstrap Docs
               </Button>
             </p>
+            <ul>
+              {movieList}
+            </ul>
           </Grid>
         </Jumbotron>
       </div>
