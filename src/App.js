@@ -19,7 +19,7 @@ class App extends Component {
   }
   render() {
     return (
-      <div>
+      <div style={{backgroundColor: "gray"}}>
         <Navbar inverse fixedTop>
           <Grid>
             <Navbar.Header>
@@ -31,11 +31,11 @@ class App extends Component {
           </Grid>
         </Navbar>
         <Jumbotron>
+          <h1 style={{textAlign: "center"}}>The Best ever made!</h1>
+        </Jumbotron>
           <Grid>
-            <h1 style={{textAlign: "center"}}>The Best ever made!</h1>
             < MovieCards movies={this.state.movies} />
           </Grid>
-        </Jumbotron>
       </div>
     );
   }
