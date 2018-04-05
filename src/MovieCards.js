@@ -6,7 +6,7 @@ import MovieList from './MovieList'
     render() {
       return (
         <Grid>
-          <MovieList movies={this.props.movies} />
+          <MovieList movies={this.props.movies} onClickDetails={this.props.onClickDetails} />
         </Grid>
       );
     }
