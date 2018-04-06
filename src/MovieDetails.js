@@ -1,4 +1,14 @@
 import React, { Component } from "react";
+import {
+  Grid,
+  Panel,
+  Heading,
+  Col,
+  Thumbnail,
+  Button,
+  Clearfix,
+  Row
+} from "react-bootstrap";
 
 class MovieDetails extends Component {
   state = {
@@ -20,9 +30,41 @@ class MovieDetails extends Component {
   }
   render() {
     return (
-      <div>
-        <h2> {this.state.movie.title} </h2>
-      </div>
+      <Grid>
+        <Row>
+          <Col md={6} mdPush={6}>
+            <div>
+              <Panel>
+                <Panel.Heading>
+                  <Panel.Title componentClass="h3">
+                    {this.state.movie.title}
+                  </Panel.Title>
+                </Panel.Heading>
+                <Panel.Body>
+                  <Thumbnail
+                    src={`https://image.tmdb.org/t/p/w500/${
+                      this.state.movie.poster_path
+                    }`}
+                    alt="242x200"
+                  />
+                </Panel.Body>
+              </Panel>
+            </div>
+          </Col>
+          <Col md={6} mdPush={6}>
+            <div>
+              <Panel>
+                <Panel.Heading>
+                  <Panel.Title componentClass="h3">
+                    {this.state.movie.title}
+                  </Panel.Title>
+                </Panel.Heading>
+                <Panel.Body>{this.state.movie.overview}</Panel.Body>
+              </Panel>
+            </div>
+          </Col>
+        </Row>
+      </Grid>
     );
   }
 }
