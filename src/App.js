@@ -31,7 +31,9 @@ class App extends Component {
         <Navbar inverse fixedTop>
           <Grid>
             <Navbar.Header>
-              <Navbar.Brand><a href="/" >Movie Town App</a> </Navbar.Brand>
+              <Navbar.Brand>
+                <a href="/">Movie Town App</a>{" "}
+              </Navbar.Brand>
               <Navbar.Toggle />
             </Navbar.Header>
             <Nav>
@@ -65,4 +67,3 @@ class App extends Component {
 }
 
 export default withRouter(App);
-
