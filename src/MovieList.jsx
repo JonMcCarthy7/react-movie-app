@@ -9,7 +9,7 @@ const MovieList = ({ movies, onClickDetails }) => {
     <Row>
       {movies.map((movie, idx) => (
         <div key={movie.id}>
-          <Col sm={6} md={4}>
+          <Col xs={6} md={4}>
             <Thumbnail
               src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
               alt="242x200"
@@ -17,7 +17,12 @@ const MovieList = ({ movies, onClickDetails }) => {
               <h3>{movie.title}</h3>
               <p>{movie.overview}</p>
               <p>
-                <Button bsStyle="primary" onClick={() => onClickDetails(movie.id)}>Details</Button>
+                <Button
+                  bsStyle="primary"
+                  onClick={() => onClickDetails(movie.id)}
+                >
+                  Details
+                </Button>
               </p>
             </Thumbnail>
           </Col>

@@ -9,9 +9,9 @@ import {
   NavItem
 } from "react-bootstrap";
 import { Link, Route, withRouter } from "react-router-dom";
-import Movies from "./Movies";
-import MovieDetails from "./MovieDetails";
-import MovieSearch from "./MovieSearch";
+import Movies from "./Movies.jsx";
+import MovieDetails from "./MovieDetails.jsx";
+import MovieSearch from "./MovieSearch.jsx";
 
 class App extends Component {
   state = {
@@ -32,7 +32,7 @@ class App extends Component {
           <Grid>
             <Navbar.Header>
               <Navbar.Brand>
-                <a href="/">Movie Town App</a>{" "}
+                <a href="/">Movie Town App</a>
               </Navbar.Brand>
               <Navbar.Toggle />
             </Navbar.Header>
